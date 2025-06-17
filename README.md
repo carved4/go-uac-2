@@ -14,9 +14,13 @@ This tool exploits the Windows ComputerDefaults.exe application to bypass User A
 - Includes cleanup functionality to restore registry settings
 - Verifies elevation status of executed processes
 
+## Demo
+![uacdemo](https://github.com/user-attachments/assets/d850e832-b5e8-4c50-bc0f-5f900685db19)
+
 ## Usage
 
 ```
+
 ## to build the tool
 go build -o uac.exe cmd/main.go
 
