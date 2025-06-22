@@ -22,6 +22,7 @@ This tool exploits the Windows ComputerDefaults.exe application to bypass User A
 ```
 
 ## to build the tool
+export CGO_ENABLED=1
 go build -o uac.exe cmd/main.go
 
 ## to run the tool
